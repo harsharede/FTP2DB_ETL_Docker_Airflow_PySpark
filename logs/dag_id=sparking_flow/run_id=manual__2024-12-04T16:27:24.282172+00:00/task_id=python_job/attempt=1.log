@@ -1,0 +1,181 @@
+[2024-12-04T16:27:26.045+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-04T16:27:26.066+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sparking_flow.python_job manual__2024-12-04T16:27:24.282172+00:00 [queued]>
+[2024-12-04T16:27:26.074+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sparking_flow.python_job manual__2024-12-04T16:27:24.282172+00:00 [queued]>
+[2024-12-04T16:27:26.075+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-04T16:27:26.093+0000] {taskinstance.py:2889} INFO - Executing <Task(SparkSubmitOperator): python_job> on 2024-12-04 16:27:24.282172+00:00
+[2024-12-04T16:27:26.103+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=190) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-12-04T16:27:26.104+0000] {standard_task_runner.py:72} INFO - Started process 193 to run task
+[2024-12-04T16:27:26.102+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'sparking_flow', 'python_job', 'manual__2024-12-04T16:27:24.282172+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/spark_***.py', '--cfg-path', '/tmp/tmpknr7uhre']
+[2024-12-04T16:27:26.106+0000] {standard_task_runner.py:105} INFO - Job 84: Subtask python_job
+[2024-12-04T16:27:26.168+0000] {task_command.py:467} INFO - Running <TaskInstance: sparking_flow.python_job manual__2024-12-04T16:27:24.282172+00:00 [running]> on host 2a892a3469ec
+[2024-12-04T16:27:26.243+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Yusuf Ganiyu' AIRFLOW_CTX_DAG_ID='sparking_flow' AIRFLOW_CTX_TASK_ID='python_job' AIRFLOW_CTX_EXECUTION_DATE='2024-12-04T16:27:24.282172+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-04T16:27:24.282172+00:00'
+[2024-12-04T16:27:26.244+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-04T16:27:26.264+0000] {base.py:84} INFO - Retrieving connection 'spark-conn'
+[2024-12-04T16:27:26.265+0000] {spark_submit.py:473} INFO - Spark-Submit cmd: spark-submit --master spark://sparkingflow-spark-master-1:7077 --name arrow-spark --deploy-mode client jobs/python/wordcountjob.py
+[2024-12-04T16:27:30.605+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO SparkContext: Running Spark version 3.5.3
+[2024-12-04T16:27:30.613+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO SparkContext: OS info Linux, 6.10.14-linuxkit, aarch64
+[2024-12-04T16:27:30.616+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO SparkContext: Java version 17.0.13
+[2024-12-04T16:27:30.762+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-12-04T16:27:30.996+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO ResourceUtils: ==============================================================
+[2024-12-04T16:27:31.000+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-12-04T16:27:31.002+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO ResourceUtils: ==============================================================
+[2024-12-04T16:27:31.004+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:30 INFO SparkContext: Submitted application: PythonWordCount
+[2024-12-04T16:27:31.062+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-12-04T16:27:31.075+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO ResourceProfile: Limiting resource is cpu
+[2024-12-04T16:27:31.077+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-12-04T16:27:31.302+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO SecurityManager: Changing view acls to: ***
+[2024-12-04T16:27:31.305+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO SecurityManager: Changing modify acls to: ***
+[2024-12-04T16:27:31.308+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO SecurityManager: Changing view acls groups to:
+[2024-12-04T16:27:31.310+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO SecurityManager: Changing modify acls groups to:
+[2024-12-04T16:27:31.317+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:31 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2024-12-04T16:27:32.138+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO Utils: Successfully started service 'sparkDriver' on port 33819.
+[2024-12-04T16:27:32.248+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO SparkEnv: Registering MapOutputTracker
+[2024-12-04T16:27:32.320+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO SparkEnv: Registering BlockManagerMaster
+[2024-12-04T16:27:32.364+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-12-04T16:27:32.367+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-12-04T16:27:32.377+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-12-04T16:27:32.414+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-6b8511f2-d0dd-48ea-80b1-4c9c606ec554
+[2024-12-04T16:27:32.444+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-12-04T16:27:32.473+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-12-04T16:27:32.863+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:32 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2024-12-04T16:27:33.013+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2024-12-04T16:27:33.015+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2024-12-04T16:27:33.038+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO Utils: Successfully started service 'SparkUI' on port 4042.
+[2024-12-04T16:27:33.366+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://sparkingflow-spark-master-1:7077...
+[2024-12-04T16:27:33.491+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO TransportClientFactory: Successfully created connection to sparkingflow-spark-master-1/172.18.0.5:7077 after 63 ms (0 ms spent in bootstraps)
+[2024-12-04T16:27:33.759+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20241204162733-0001
+[2024-12-04T16:27:33.781+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40461.
+[2024-12-04T16:27:33.782+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO NettyBlockTransferService: Server created on 2a892a3469ec:40461
+[2024-12-04T16:27:33.785+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-12-04T16:27:33.802+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 2a892a3469ec, 40461, None)
+[2024-12-04T16:27:33.807+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO BlockManagerMasterEndpoint: Registering block manager 2a892a3469ec:40461 with 434.4 MiB RAM, BlockManagerId(driver, 2a892a3469ec, 40461, None)
+[2024-12-04T16:27:33.812+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 2a892a3469ec, 40461, None)
+[2024-12-04T16:27:33.814+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:33 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 2a892a3469ec, 40461, None)
+[2024-12-04T16:27:34.094+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2024-12-04T16:27:34.306+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO SparkContext: Added file ftp://alpineftp:alpineftp@sparkingflow-ftp-server-1/home/ftpusers/data/test1234.txt at ftp://alpineftp:alpineftp@sparkingflow-ftp-server-1/home/ftpusers/data/test1234.txt with timestamp 1733329654305
+[2024-12-04T16:27:34.405+0000] {spark_submit.py:634} INFO - Traceback (most recent call last):
+[2024-12-04T16:27:34.406+0000] {spark_submit.py:634} INFO - File "/opt/***/jobs/python/wordcountjob.py", line 26, in <module>
+[2024-12-04T16:27:34.407+0000] {spark_submit.py:634} INFO - res=spark.sparkContext.addFile('ftp://alpineftp:alpineftp@sparkingflow-ftp-server-1/home/ftpusers/data/test1234.txt')
+[2024-12-04T16:27:34.407+0000] {spark_submit.py:634} INFO - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2024-12-04T16:27:34.407+0000] {spark_submit.py:634} INFO - File "/home/***/.local/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/context.py", line 1898, in addFile
+[2024-12-04T16:27:34.409+0000] {spark_submit.py:634} INFO - File "/home/***/.local/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/java_gateway.py", line 1322, in __call__
+[2024-12-04T16:27:34.410+0000] {spark_submit.py:634} INFO - File "/home/***/.local/lib/python3.12/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 179, in deco
+[2024-12-04T16:27:34.410+0000] {spark_submit.py:634} INFO - File "/home/***/.local/lib/python3.12/site-packages/pyspark/python/lib/py4j-0.10.9.7-src.zip/py4j/protocol.py", line 326, in get_return_value
+[2024-12-04T16:27:34.412+0000] {spark_submit.py:634} INFO - py4j.protocol.Py4JJavaError: An error occurred while calling o24.addFile.
+[2024-12-04T16:27:34.415+0000] {spark_submit.py:634} INFO - : java.io.IOException: sun.net.ftp.FtpProtocolException: CWD home:550 Failed to change directory.
+[2024-12-04T16:27:34.415+0000] {spark_submit.py:634} INFO - 
+[2024-12-04T16:27:34.416+0000] {spark_submit.py:634} INFO - at java.base/sun.net.www.protocol.ftp.FtpURLConnection.getInputStream(FtpURLConnection.java:544)
+[2024-12-04T16:27:34.416+0000] {spark_submit.py:634} INFO - at org.apache.spark.util.Utils$.doFetchFile(Utils.scala:719)
+[2024-12-04T16:27:34.417+0000] {spark_submit.py:634} INFO - at org.apache.spark.util.Utils$.fetchFile(Utils.scala:467)
+[2024-12-04T16:27:34.417+0000] {spark_submit.py:634} INFO - at org.apache.spark.SparkContext.addFile(SparkContext.scala:1790)
+[2024-12-04T16:27:34.417+0000] {spark_submit.py:634} INFO - at org.apache.spark.SparkContext.addFile(SparkContext.scala:1728)
+[2024-12-04T16:27:34.418+0000] {spark_submit.py:634} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-12-04T16:27:34.418+0000] {spark_submit.py:634} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-12-04T16:27:34.419+0000] {spark_submit.py:634} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-12-04T16:27:34.419+0000] {spark_submit.py:634} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-12-04T16:27:34.420+0000] {spark_submit.py:634} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-12-04T16:27:34.420+0000] {spark_submit.py:634} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-12-04T16:27:34.421+0000] {spark_submit.py:634} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-12-04T16:27:34.421+0000] {spark_submit.py:634} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-12-04T16:27:34.421+0000] {spark_submit.py:634} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-12-04T16:27:34.422+0000] {spark_submit.py:634} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-12-04T16:27:34.422+0000] {spark_submit.py:634} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-12-04T16:27:34.422+0000] {spark_submit.py:634} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-12-04T16:27:34.423+0000] {spark_submit.py:634} INFO - Caused by: sun.net.ftp.FtpProtocolException: CWD home:550 Failed to change directory.
+[2024-12-04T16:27:34.423+0000] {spark_submit.py:634} INFO - 
+[2024-12-04T16:27:34.423+0000] {spark_submit.py:634} INFO - at java.base/sun.net.ftp.impl.FtpClient.issueCommandCheck(FtpClient.java:565)
+[2024-12-04T16:27:34.424+0000] {spark_submit.py:634} INFO - at java.base/sun.net.ftp.impl.FtpClient.changeDirectory(FtpClient.java:1243)
+[2024-12-04T16:27:34.426+0000] {spark_submit.py:634} INFO - at java.base/sun.net.www.protocol.ftp.FtpURLConnection.cd(FtpURLConnection.java:410)
+[2024-12-04T16:27:34.426+0000] {spark_submit.py:634} INFO - at java.base/sun.net.www.protocol.ftp.FtpURLConnection.getInputStream(FtpURLConnection.java:460)
+[2024-12-04T16:27:34.427+0000] {spark_submit.py:634} INFO - ... 16 more
+[2024-12-04T16:27:34.428+0000] {spark_submit.py:634} INFO - 
+[2024-12-04T16:27:34.488+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO SparkContext: Invoking stop() from shutdown hook
+[2024-12-04T16:27:34.489+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2024-12-04T16:27:34.497+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO SparkUI: Stopped Spark web UI at http://2a892a3469ec:4042
+[2024-12-04T16:27:34.501+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2024-12-04T16:27:34.504+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2024-12-04T16:27:34.521+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2024-12-04T16:27:34.542+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO MemoryStore: MemoryStore cleared
+[2024-12-04T16:27:34.543+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO BlockManager: BlockManager stopped
+[2024-12-04T16:27:34.548+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2024-12-04T16:27:34.553+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2024-12-04T16:27:34.574+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO SparkContext: Successfully stopped SparkContext
+[2024-12-04T16:27:34.577+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO ShutdownHookManager: Shutdown hook called
+[2024-12-04T16:27:34.578+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-3bb09342-246f-46a1-a607-57a98427bbbf
+[2024-12-04T16:27:34.584+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-865abb8d-47a1-4ac1-ab0c-e599c83d811a
+[2024-12-04T16:27:34.590+0000] {spark_submit.py:634} INFO - 24/12/04 16:27:34 INFO ShutdownHookManager: Deleting directory /tmp/spark-3bb09342-246f-46a1-a607-57a98427bbbf/pyspark-312fcdda-035b-40ba-a670-29d5a8e4a67e
+[2024-12-04T16:27:34.696+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 176, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 560, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://sparkingflow-spark-master-1:7077 --name arrow-spark --deploy-mode client jobs/python/wordcountjob.py. Error code is: 1.
+[2024-12-04T16:27:34.713+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=sparking_flow, task_id=python_job, run_id=manual__2024-12-04T16:27:24.282172+00:00, execution_date=20241204T162724, start_date=20241204T162726, end_date=20241204T162734
+[2024-12-04T16:27:34.736+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-04T16:27:34.737+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 84 for task python_job (Cannot execute: spark-submit --master spark://sparkingflow-spark-master-1:7077 --name arrow-spark --deploy-mode client jobs/python/wordcountjob.py. Error code is: 1.; 193)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 176, in execute
+    self._hook.submit(self.application)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 560, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master spark://sparkingflow-spark-master-1:7077 --name arrow-spark --deploy-mode client jobs/python/wordcountjob.py. Error code is: 1.
+[2024-12-04T16:27:34.782+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2024-12-04T16:27:34.845+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-04T16:27:34.852+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

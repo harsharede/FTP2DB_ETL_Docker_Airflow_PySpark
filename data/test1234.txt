@@ -1,0 +1,24 @@
+It is common that we might necessary to download data from web and use this data something similar to Pandas.read_csv(http:link),
+
+In spark we have a add file method which can be used to download data from web.
+
+We will see the following in detail
+
+Working Principle
+Downloading Data from Web
+Downloading data from FTP server
+Working Principle
+
+Once we specify the file using spark.sparkContext.addFile method it will downloaded and stored in temp folder under /tmp from where we can get the files using Sparkfiles.get
+
+Downloading Data from Web
+
+It consists of 2 steps
+
+Downloading data using addfile
+Loading data into dataframe
+Downloading data using addfile:
+
+We will be downloading data from uci machine learning repo using
+
+spark.sparkContext.addFile

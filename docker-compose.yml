@@ -1,0 +1,102 @@
+version: '3'
+
+x-spark-common: &spark-common
+  image: bitnami/spark:latest
+  depends_on:
+    - ftp-server
+  volumes:
+    - ./jobs:/opt/bitnami/spark/jobs
+    - spark-shared:/home/shared/data/
+    - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+  networks:
+    - etl-network
+  environment:
+    PYSPARK_PYTHON: /opt/bitnami/spark/python
+  #   PYSPARK_DRIVER_PYTHON: /opt/bitnami/spark/python
+  #   SPARK_HOME: opt/bitnami/spark
+  #   JAVA_HOME: /usr/lib/jvm/java-11-openjdk
+  # working_dir: /opt/spark/app
+  
+  #   SPARK_LOCAL_DIRS: /shared/tmp
+  #   SPARK_WORKER_DIR: /shared/tmp
+
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - airflow.env
+  volumes:
+    - ./jobs:/opt/airflow/jobs
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - spark-shared:/home/shared/data/
+    - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+  depends_on:
+    - postgres
+  networks:
+    - etl-network
+
+services:
+  spark-master:
+    <<: *spark-common
+    ports:
+      - "9090:8080"
+      - "7077:7077"
+    command: bash -c "bin/spark-class org.apache.spark.deploy.master.Master && chmod 777 /home/shared/data/ && pip install py4j"
+    user: root
+
+  spark-worker:
+    <<: *spark-common
+    depends_on:
+      - spark-master
+    environment:
+      SPARK_MODE: worker
+      SPARK_WORKER_CORES: 2
+      SPARK_WORKER_MEMORY: 1g
+      SPARK_MASTER_URL: spark://spark-master:7077
+    command: bash -c "bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077 && chmod 777 /home/shared/data/ && pip install py4j"
+    user: root
+
+  postgres:
+    image: postgres:14.0
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    networks:
+      - etl-network
+
+  webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    depends_on:
+      - scheduler
+    
+
+  scheduler:
+    <<: *airflow-common
+    command: bash -c "airflow db migrate && airflow users create --username admin --firstname Harsha --lastname Vardhan --role Admin --email harsha@gmail.com --password admin && airflow scheduler"
+    user: root
+
+  ftp-server:
+    image: delfer/alpine-ftp-server
+    ports:
+      - "21:21"
+      - 21000-21010:21000-21010
+    environment:
+      - ADDRESS=localhost
+    volumes:
+      - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/ftpusers/data/
+      - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+    networks:
+      - etl-network
+
+volumes:
+  spark-shared: # Shared volume for Spark file distribution
+    driver: local
+
+networks:
+  etl-network:

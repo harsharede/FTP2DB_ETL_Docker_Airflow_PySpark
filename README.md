@@ -1,10 +1,5 @@
-# Apache Airflow on Steroids with Java, Scala and Python Spark Jobs
-
-This project orchestrates Spark jobs written in different programming languages using Apache Airflow, all within a Dockerized environment. The DAG `sparking_flow` is designed to submit Spark jobs written in Python, Scala, and Java, ensuring that data processing is handled efficiently and reliably on a daily schedule.
 
 ## Project Structure
-
-The DAG `sparking_flow` includes the following tasks:
 
 - `start`: A PythonOperator that prints "Jobs started".
 - `python_job`: A SparkSubmitOperator that submits a Python Spark job.
@@ -58,5 +53,3 @@ After the Docker environment is set up, the `sparking_flow` DAG will be availabl
 ### Note:
 You must add the spark cluster url to the spark connection in the configuration on Airflow UI
 
-### Full Course
-[![Sparking Flow](https://img.youtube.com/vi/o_pne3aLW2w/0.jpg)](https://www.youtube.com/watch?v=o_pne3aLW2w)

@@ -7,18 +7,12 @@ x-spark-common: &spark-common
   volumes:
     - ./jobs:/opt/bitnami/spark/jobs
     - spark-shared:/home/shared/data/
-    - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+    - ./data:/home/shared/data/
   networks:
     - etl-network
   environment:
     PYSPARK_PYTHON: /opt/bitnami/spark/python
-  #   PYSPARK_DRIVER_PYTHON: /opt/bitnami/spark/python
-  #   SPARK_HOME: opt/bitnami/spark
-  #   JAVA_HOME: /usr/lib/jvm/java-11-openjdk
-  # working_dir: /opt/spark/app
-  
-  #   SPARK_LOCAL_DIRS: /shared/tmp
-  #   SPARK_WORKER_DIR: /shared/tmp
+
 
 x-airflow-common: &airflow-common
   build:
@@ -31,7 +25,7 @@ x-airflow-common: &airflow-common
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - spark-shared:/home/shared/data/
-    - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+    - ./data:/home/shared/data/
   depends_on:
     - postgres
   networks:
@@ -89,13 +83,13 @@ services:
     environment:
       - ADDRESS=localhost
     volumes:
-      - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/ftpusers/data/
-      - /Users/admin/Documents/GitHub/SparkingFlow/data:/home/shared/data/
+      - ./data:/home/ftpusers/data/
+      - ./data:/home/shared/data/
     networks:
       - etl-network
 
 volumes:
-  spark-shared: # Shared volume for Spark file distribution
+  spark-shared: 
     driver: local
 
 networks:
